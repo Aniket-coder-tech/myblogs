@@ -1,0 +1,16 @@
+<%-include("partials/header")-%>
+<div class="content">
+<h1>Home</h1>
+<p><%=text%></p>
+    <% post.forEach(function(posts){%>
+    <div class="ui">
+        <div class="flex-item"><h1><%=posts.title%></h1></div>
+    <div class="flex-item">
+    
+    <form class="io" action="/postss/<%=posts._id%>" method="get"><button type="submit">
+    <i class="fa-solid fa-pen-to-square"></i></form></button>
+    
+    <form class="io" action="/<%=posts._id%>" method="delete"><button type="submit"><i class="fa-solid fa-delete-left"></i></button></form></div></div>
+    <p><%=posts.description.slice(0,200)%>... (<a href="/posts/<%=_.kebabCase(posts.title)%>">Read more</a>)</p>
+    <%})%></div>
+<%-include("partials/footer")-%>
